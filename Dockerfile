@@ -5,7 +5,7 @@ FROM n8nio/n8n:latest
 WORKDIR /data
 
 # Копируем патч trust proxy
-COPY patch /data/patch
+COPY patch /data
 
 # Устанавливаем нужные разрешения
 RUN chown -R node:node /data
@@ -27,4 +27,5 @@ EXPOSE 5678
 
 # Запуск n8n
 CMD ["n8n", "start"]
+
 
