@@ -11,7 +11,7 @@ COPY patch /data/patch
 RUN chown -R node:node /data
 
 # Загружаем патч при старте
-ENV N8N_CUSTOM_EXTENSIONS=/data/patch
+ENV N8N_CUSTOM_EXTENSIONS=/data
 
 # Включаем trust proxy и другие нужные параметры
 ENV NODE_ENV=production
@@ -27,3 +27,4 @@ EXPOSE 5678
 
 # Запуск n8n
 CMD ["n8n", "start"]
+
