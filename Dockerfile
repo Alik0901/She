@@ -7,9 +7,6 @@ WORKDIR /data
 # Копируем патч trust proxy
 COPY patch /data/patch
 
-# Устанавливаем нужные разрешения
-RUN chown -R node:node /data
-
 # Загружаем патч при старте
 ENV N8N_CUSTOM_EXTENSIONS=/data/patch
 
@@ -21,6 +18,8 @@ ENV N8N_GIT_NODE_DISABLE_BARE_REPOS=true
 ENV N8N_RATE_LIMIT_DISABLED=true
 ENV DB_SQLITE_POOL_SIZE=2
 ENV N8N_TRUSTED_PROXIES=*
+ENV N8N_HOST=0.0.0.0
+ENV N8N_PORT=5678
 
 # Порт Railway
 EXPOSE 5678
