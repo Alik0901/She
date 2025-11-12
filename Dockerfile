@@ -19,14 +19,11 @@ ENV N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false
 ENV N8N_HOST=0.0.0.0
 ENV N8N_PORT=5678
 
-# Гарантируем сохранение данных в стандартной директории n8n
-VOLUME ["/home/node/.n8n"]
-
-# Указываем Railway порт
+# Открываем порт Railway
 EXPOSE 5678
 
-# Запускаем как пользователь node (иначе нет прав на /home/node)
+# Запускаем от имени node (иначе нет прав)
 USER node
 
-# Команда запуска
+# Стартуем n8n
 ENTRYPOINT ["n8n"]
